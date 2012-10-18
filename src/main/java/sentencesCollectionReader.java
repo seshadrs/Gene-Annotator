@@ -21,6 +21,11 @@ import org.apache.uima.util.ProgressImpl;
 
 
 public class sentencesCollectionReader extends CollectionReader_ImplBase {
+	/*
+	 * Reads sentences/documents from the input file specified as the parameter 'InputFile'
+	 * reads documents one by one into the pipeline
+	 * 
+	 */
 
 	ArrayList<String> allDocuments; // all document content (text and ID)
 	Integer currentIndex; // current document being processed

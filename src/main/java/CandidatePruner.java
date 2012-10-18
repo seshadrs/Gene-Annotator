@@ -12,7 +12,15 @@ import NER.Gene.Candidate;
 
 
 public class CandidatePruner extends JCasAnnotator_ImplBase {
+	
+	/*
+	 * Prunes the gene candidates by comparing their score with the average score of hte gene candidates for that particular document.
+	 * Sets the IsBoolean to true for the candidates that have a score that is of a particular ratio or higher.
+	 * The pruning ratio is set as a parameter 'pruningRatio', takes a double value
+	 * 
+	 */
 
+	
 	@Override
 	public void process(JCas jcas) throws AnalysisEngineProcessException {
 		// TODO Auto-generated method stub
@@ -59,9 +67,9 @@ public class CandidatePruner extends JCasAnnotator_ImplBase {
 	        while (annotationIter_Final.hasNext()) {
 		          
 	        	Candidate annot = (Candidate) annotationIter_Final.next();
-	        	if (annot.getScore() >= 0.7* avgScores.get(annot.getDocumentID()))
+	        	if (annot.getScore() >= 1.9* avgScores.get(annot.getDocumentID()))
 	        		annot.setIsGene(true);
-	        	System.out.println(annot.getCoveredText()+" "+annot.getScore()+" "+avgScores.get(annot.getDocumentID())+" "+annot.getDocumentID());
+	        	//System.out.println(annot.getCoveredText()+" "+annot.getScore()+" "+avgScores.get(annot.getDocumentID())+" "+annot.getDocumentID());
 	        	
 	        }
 	        

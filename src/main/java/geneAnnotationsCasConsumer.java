@@ -18,6 +18,11 @@ import NER.Gene.Candidate_Type;
 
 public class geneAnnotationsCasConsumer extends CasConsumer_ImplBase {
 
+	/*
+	 * CasConsumer class that receives the gene Candidates with the IsGene field (label) set
+	 * Writes output out to the filename specified as 'OutputFile' parameter.
+	 */
+	
 	File outFile;
 	FileWriter fileWriter;
 

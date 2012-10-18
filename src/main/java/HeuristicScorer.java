@@ -9,6 +9,11 @@ import NER.Gene.Candidate;
 
 
 public class HeuristicScorer extends JCasAnnotator_ImplBase {
+	/*
+	 * Uses heuristic functions to score the gene candidates.
+	 * Functions are based on string length, string patterns that resemble genes.
+	 * Updates the score of the gene candidates in the CAS. 
+	 */
 	
 	
 	

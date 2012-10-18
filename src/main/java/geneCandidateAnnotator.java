@@ -24,6 +24,11 @@ import edu.stanford.nlp.util.CoreMap;
 import NER.Gene.*;
 
 public class geneCandidateAnnotator extends JCasAnnotator_ImplBase {
+	/*
+	 * Uses Stanford POS tagger to find "NN*" part of speech fragments in the sentences.
+	 * Ignores bracket characters
+	 * Annotates these string fragments as gene candidates and updates the CAS.
+	 */
 	
 	
 	private static StanfordCoreNLP pipeline = null;
@@ -104,7 +109,7 @@ public class geneCandidateAnnotator extends JCasAnnotator_ImplBase {
 				candidate.setBegin(document_start_location + start);
 				candidate.setEnd(document_start_location+ end+1);
 				
-				candidate.setDocumentID(document_start_location+document_ID);
+				candidate.setDocumentID(document_ID);
 				
 				candidate.setStartOffset(start - StringUtil.countWords(document_text.substring(0,start)) );
 				candidate.setEndOffset(end - StringUtil.countWords(document_text.substring(0,start)) );
